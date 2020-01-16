@@ -18,7 +18,6 @@ public class IoDemo {
     }
 
     private static void tree(String str) {
-        System.out.println("второй трее");
         List<String> stringList = readStringsFromFileToList(str);
         int folders = 0;
         int files = 0;
