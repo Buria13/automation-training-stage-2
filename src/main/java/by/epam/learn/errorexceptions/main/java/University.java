@@ -101,7 +101,7 @@ public class University {
             }
             averageGrade = averageGrade / groupList.size();
         } catch (NoGroupInFacultyException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         return round(averageGrade);
@@ -117,7 +117,7 @@ public class University {
             }
             averageGrade = averageGrade / studentList.size();
         } catch (NoStudentsInGroupException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         return round(averageGrade);
