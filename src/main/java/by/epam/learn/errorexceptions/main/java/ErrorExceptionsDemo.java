@@ -49,14 +49,14 @@ public class ErrorExceptionsDemo {
                 fksis
         ), listOfSubjects);
 
-        // Добавляем предметы на факультеты и ставим случайные оценки студентам
+        // Add subjects to the faculties and set random grades to students
         for (Subject subject : listOfSubjects) {
             try {
                 for (Faculty faculty : bguir.getFaculties()) {
                     subject.addSubjectToFaculty(faculty);
                     setRandomGradesToStudents(faculty, subject);
                 }
-            } catch (NoFacultyInUniversityException e) {
+            } catch (NoFacultyAtUniversityException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -65,27 +65,16 @@ public class ErrorExceptionsDemo {
         Student student = bguir.getStudentByName("Burets");
         Subject subject = bguir.getSubject(SubjectName.MATHEMATICS);
 
-        System.out.println("Вывод для примера студент и список его оценок по предметам: "
-                + student);
-        try {
-            for (SubjectName subjectName : student.getListOfSubjects()) {
-                System.out.println(subjectName + " : "
-                         + bguir.getSubject(subjectName).getGradesOfSpecificStudent(student));
-            }
-        } catch (NoSubjectForStudentException e) {
-            System.out.println(e.getMessage());
-        }
-
-        System.out.println("\nСредний балл студента по всем предметам: "
+        System.out.println("\nAverage student grade in all subjects: "
                 + bguir.getAverageGradeOfStudentInAllSubjects(student));
 
-        System.out.println("\nСредний балл по конкретному предмету в конкретной группе: "
+        System.out.println("\nAverage grade for a particular subject in a particular group: "
                 + bguir.getAverageGradeOfGroupInSpecificSubject(group, subject));
 
-        System.out.println("\nСредний балл по конкретному предмету на конкретном факультете: "
+        System.out.println("\nAverage grade for a particular subject at a particular faculty: "
                 + bguir.getAverageGradeOfFacultyInSpecificSubject(fitu, subject));
 
-        System.out.println("\nСредний балл по предмету для всего университета: "
+        System.out.println("\nAverage grade for a subject for the entire University: "
                 + bguir.getAverageGradeOfUniversityInSpecificSubject(subject));
 
     }
@@ -102,12 +91,12 @@ public class ErrorExceptionsDemo {
                         try {
                             subject.addGradeToStudent(student, randomGrade);
                         } catch (IllegalGradeException e) {
-                            System.out.println("Невозможно добавить оценку. " + e.getMessage());
+                            System.out.println("Unable to add a grade. " + e.getMessage());
                         }
                     }
                 }
             }
-        } catch (NoGroupInFacultyException | NoStudentsInGroupException e) {
+        } catch (NoGroupAtFacultyException | NoStudentsInGroupException e) {
             System.out.println(e.getMessage());
         }
     }

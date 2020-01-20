@@ -28,7 +28,7 @@ public class Student {
 
     public List<SubjectName> getListOfSubjects() throws NoSubjectForStudentException{
         if (listOfSubjects.isEmpty()) {
-            throw new NoSubjectForStudentException("Отсутсвие предметов у студента");
+            throw new NoSubjectForStudentException("No subjects for student");
         }
         return listOfSubjects;
     }

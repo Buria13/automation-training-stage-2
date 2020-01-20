@@ -1,6 +1,6 @@
 package by.epam.learn.errorexceptions.main.java.hierarchy;
 
-import by.epam.learn.errorexceptions.main.java.exceptions.NoGroupInFacultyException;
+import by.epam.learn.errorexceptions.main.java.exceptions.NoGroupAtFacultyException;
 import by.epam.learn.errorexceptions.main.java.structure.FacultyName;
 
 import java.util.ArrayList;
@@ -21,9 +21,9 @@ public class Faculty {
         groups.add(group);
     }
 
-    public List<Group> getGroups() throws NoGroupInFacultyException {
+    public List<Group> getGroups() throws NoGroupAtFacultyException {
         if (groups.isEmpty()) {
-            throw new NoGroupInFacultyException("Отсутствие групп на факультете");
+            throw new NoGroupAtFacultyException("No group at the faculty");
         }
         return groups;
     }

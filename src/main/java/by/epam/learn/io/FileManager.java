@@ -21,23 +21,22 @@ public class FileManager {
             }
         }
 
-        System.out.println("Количество папок: " + folders);
-        System.out.println("Количество файлов: " + files);
-        System.out.println("Среднее количество файлов в папке: "
+        System.out.println("Number of folders: " + folders);
+        System.out.println("Number of files: " + files);
+        System.out.println("Average number of files in a folder: "
                 + ((double) files) / folders);
-        System.out.println("Средняя длина названия файла: "
+        System.out.println("Average length of the file name: "
                 + nameLengthOfFiles / files);
     }
 
 
     public static void tree(File directory) {
-        System.out.println("Результат программы находиться " +
-                "в текущей дериктории resources/tree.txt");
+        System.out.println("The result of the program is located in the folder resources/tree.txt");
         reassignSystemOutToFileOutputStream(directory);
     }
 
     private static void reassignSystemOutToFileOutputStream(File directory) {
-        File tree = new File ("src/main/java/by/epam/learn/resources/tree.txt");
+        File tree = new File ("src/main/resources/tree.txt");
         try (PrintStream stream = new PrintStream(
                 new FileOutputStream(tree))) {
 
@@ -45,7 +44,7 @@ public class FileManager {
             writeTreeToFile(directory, "");
 
         } catch (FileNotFoundException e) {
-            System.out.println("Ошибка чтения файла" + e.getMessage());
+            System.out.println("File read error: " + e.getMessage());
         }
     }
 
@@ -80,7 +79,7 @@ public class FileManager {
             }
 
         } catch (IOException e) {
-            System.out.println("Ошибка чтения файла: " + e.getMessage());
+            System.out.println("File read error: " + e.getMessage());
         }
 
         return stringsList;

@@ -33,9 +33,9 @@ public class University {
         return null;
     }
 
-    public List<Faculty> getFaculties() throws NoFacultyInUniversityException {
+    public List<Faculty> getFaculties() throws NoFacultyAtUniversityException {
         if (faculties.isEmpty()) {
-            throw new NoFacultyInUniversityException("Отсутствие факультетов в университете");
+            throw new NoFacultyAtUniversityException("No faculties at the University");
         }
         return faculties;
     }
@@ -50,7 +50,7 @@ public class University {
                         return group;
                     }
                 }
-            } catch (NoGroupInFacultyException e) {
+            } catch (NoGroupAtFacultyException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -70,7 +70,6 @@ public class University {
         for (Faculty faculty : faculties) {
             Student student = faculty.getStudentByName(studentName);
             if (student != null) return student;
-
         }
         return null;
     }
@@ -100,7 +99,7 @@ public class University {
                 averageGrade += getAverageGradeOfGroupInSpecificSubject(group, subject);
             }
             averageGrade = averageGrade / groupList.size();
-        } catch (NoGroupInFacultyException e) {
+        } catch (NoGroupAtFacultyException e) {
             System.out.println(e.getMessage());
         }
 

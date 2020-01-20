@@ -37,7 +37,7 @@ public class Group {
 
     public List<Student> getStudents() throws NoStudentsInGroupException{
         if (students.isEmpty()) {
-            throw new NoStudentsInGroupException("Отсутствие студентов в группе");
+            throw new NoStudentsInGroupException("No students in the group");
         }
         return students;
     }

@@ -1,7 +1,7 @@
 package by.epam.learn.errorexceptions.main.java.hierarchy;
 
 import by.epam.learn.errorexceptions.main.java.exceptions.IllegalGradeException;
-import by.epam.learn.errorexceptions.main.java.exceptions.NoGroupInFacultyException;
+import by.epam.learn.errorexceptions.main.java.exceptions.NoGroupAtFacultyException;
 import by.epam.learn.errorexceptions.main.java.exceptions.NoStudentsInGroupException;
 import by.epam.learn.errorexceptions.main.java.structure.SubjectName;
 
@@ -36,7 +36,7 @@ public class Subject {
             for (Group group : faculty.getGroups()) {
                 addSubjectToGroup(group);
             }
-        } catch (NoGroupInFacultyException e) {
+        } catch (NoGroupAtFacultyException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -54,7 +54,7 @@ public class Subject {
 
     public void addGradeToStudent(Student student, int grade) throws IllegalGradeException {
         if (grade < 1 || grade > 10) {
-            throw new IllegalGradeException("Оценка должна быть в границах от 1 до 10");
+            throw new IllegalGradeException("The grade should be in the range from 1 to 10");
         }
         studentsGradesMap.get(student).add(grade);
     }
