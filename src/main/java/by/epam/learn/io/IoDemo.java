@@ -48,7 +48,7 @@ public class IoDemo {
     }
 
     private static void reassignSystemOutToFileOutputStream(File directory) {
-        File tree = new File ("src/main/java/by/epam/learn/io/resources/tree.txt");
+        File tree = new File ("src/main/java/by/epam/learn/resources/tree.txt");
         try (PrintStream stream = new PrintStream(
                 new FileOutputStream(tree))) {
 

@@ -85,7 +85,7 @@ public class University {
             }
             averageGrade = averageGrade / subjectsList.size();
         } catch (NoSubjectForStudentException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
 
         return round(averageGrade);
