@@ -1,23 +1,21 @@
 package by.epam.learn.threads;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Tunnel  {
     private String name;
-    private boolean status;
+    private ReentrantLock lock = new ReentrantLock(true);
 
     public Tunnel(String name) {
         this.name = name;
-        status = true;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public ReentrantLock getLock() {
+        return lock;
     }
 
-    public boolean getStatus() {
-        return status;
-    }
 }

@@ -5,16 +5,16 @@ public class ThreadsDemo {
     public static void main(String[] args) {
         Tunnel tunnelOne = new Tunnel("Tunnel ONE");
         Tunnel tunnelTwo = new Tunnel("Tunnel TWO");
+        TunnelDispatcher dispatcher = new TunnelDispatcher(tunnelOne, tunnelTwo);
 
-        for (int i = 1; i <= 2; i++) {
-            Train train = new Train("Train #" + i, tunnelOne);
-            train.thread.start();
+        for (int i = 0; i < 2; i++) {
+            new Thread(new Train(dispatcher), "Train #" + i).start();
         }
 
-        for (int j = 3; j <= 9; j++) {
-            Train train = new Train("Train #" + j, tunnelTwo);
-            train.thread.start();
+        for (int j = 0; j < 8; j++) {
+            new Thread(new Train(dispatcher), "Train #" + j).start();
         }
+
     }
 
 }
