@@ -30,16 +30,10 @@ public class PastebinHomePage extends Page {
 
     public PastebinHomePage openPage() {
         driver.get(HOMEPAGE_URL);
-//        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-//                .until(CustomConditions.jQueryAJAXsCompleted());
         return this;
     }
 
-    public PastebinPastedPage createNewPaste() {
-
-        String textFormInputData = "git config --global user.name  \"New Sheriff in Town\"\n" +
-                "git reset $(git commit-tree HEAD^{tree} -m \"Legacy code\")\n" +
-                "git push origin master --force";
+    public PastebinPastedPage fillFormAndCreateNewPaste() {
 
         textFormInput.sendKeys(textFormInputData);
         pasteNameInput.sendKeys("how to gain dominance among developers");
@@ -49,6 +43,7 @@ public class PastebinHomePage extends Page {
 
         return new PastebinPastedPage(driver);
     }
+
 
     private void selectOption(WebElement webElement, String option)    {
         Select select = new Select(webElement);

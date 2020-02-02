@@ -13,6 +13,9 @@ public class PastebinPastedPage extends Page {
     @FindBy(tagName = "title")
     private WebElement pastedPageTitle;
 
+    @FindBy(id = "paste_code")
+    WebElement pastedText;
+
     public PastebinPastedPage(WebDriver driver) {
         super(driver);
     }
@@ -23,6 +26,10 @@ public class PastebinPastedPage extends Page {
 
     public String verifySyntaxHighlighting() {
         return pastedDataSyntaxHighlighting.getAttribute("class");
+    }
+
+    public Boolean verifyEnteredText() {
+        return pastedText.getText().equals(textFormInputData);
     }
 
 }
